@@ -21,3 +21,10 @@ body {
     height: 200px;
 }
 
+ .container {
+    max-width:800px;
+    color:grey;
+    font-family:sans-serif;
+    margin:0 auto;
+    padding:30px 20px;
+ }
