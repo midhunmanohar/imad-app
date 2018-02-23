@@ -5,12 +5,64 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
+var content ={
+    ttile:'Article-one-imad',
+    heading:'Article-one',
+    date:'jan 01 2018',
+    content:` <h3>Article-One</h3>
+            <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident, at ut fugiat fuga.
+            Modi officiis harum, ipsa quod totam quas aliquam eaque reiciendis earum tempore optio
+            placeat dolorem eos ullam.</p>
+            
+            <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident, at ut fugiat fuga.
+            Modi officiis harum, ipsa quod totam quas aliquam eaque reiciendis earum tempore optio
+            placeat dolorem eos ullam.</p>
+            
+            <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident, at ut fugiat fuga.
+            Modi officiis harum, ipsa quod totam quas aliquam eaque reiciendis earum tempore optio
+            placeat dolorem eos ullam.</p>`
+};
+
+function createTemplate(data){
+    var title=data.title;
+    var date=data.date;
+    var heading=data.heading;
+    var content=data.content;
+    
+    var htmlTemplate=`<html>
+        <head>
+            <title>${title}</title>
+            <link href="/ui/style.css" rel="stylesheet" />
+        </head>
+        <body>
+            <div class="container">
+                <div>
+                <a href="/">Home</a>
+                <hr/>
+                </div>
+                <div>
+                    ${date}
+                    <h3>
+                      ${heading}
+                    
+                    </h3>
+                </div>
+                <div>
+                    ${content}
+                </div>
+            </div>
+        </body>
+    </html>`
+  
+  return htmlTemplate;  
+}
+
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
 app.get('/article-one',function(req,res){
-   res.sendFile(path.join(__dirname, 'ui', 'article-one.html'));
+   res.send(createTempalte(article-one));
 });
 
 app.get('/article-two',function(req,res){
