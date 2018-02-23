@@ -5,7 +5,7 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
-var content ={
+var articleOne={
     ttile:'Article-one-imad',
     heading:'Article-one',
     date:'jan 01 2018',
@@ -62,7 +62,7 @@ app.get('/', function (req, res) {
 });
 
 app.get('/article-one',function(req,res){
-   res.send(createTempalte(article-one));
+   res.send(createTempalte(articleOne));
 });
 
 app.get('/article-two',function(req,res){
