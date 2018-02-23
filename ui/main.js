@@ -1,3 +1,3 @@
 console.log('Loaded!');
 
-document.getElementById("main-text").innerHTMl="Hello";
+document.getElementById("main-text").innerHTML="Hello"
