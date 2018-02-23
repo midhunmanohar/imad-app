@@ -23,6 +23,23 @@ var articleOne={
             placeat dolorem eos ullam.</p>`
 };
 
+var articleTwo={
+    title:'Article-Two',
+    heading:'Article-Two',
+    date:'jan 23 2018',
+    content:` <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident, at ut fugiat fuga.
+            Modi officiis harum, ipsa quod totam quas aliquam eaque reiciendis earum tempore optio
+            placeat dolorem eos ullam.</p>
+            
+            <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident, at ut fugiat fuga.
+            Modi officiis harum, ipsa quod totam quas aliquam eaque reiciendis earum tempore optio
+            placeat dolorem eos ullam.</p>
+            
+            <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident, at ut fugiat fuga.
+            Modi officiis harum, ipsa quod totam quas aliquam eaque reiciendis earum tempore optio
+            placeat dolorem eos ullam.</p>`
+};
+
 function createTemplate(data){
     var title=data.title;
     var date=data.date;
@@ -66,7 +83,7 @@ app.get('/article-one',function(req,res){
 });
 
 app.get('/article-two',function(req,res){
-   res.sendFile(path.join(__dirname, 'ui', 'article-two.html'));
+   res.send(createTemplate(articleTwo));
 });
 
 app.get('/article-three',function(req,res){
