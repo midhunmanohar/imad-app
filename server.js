@@ -6,10 +6,10 @@ var app = express();
 app.use(morgan('combined'));
 
 var articleOne={
-    ttile:'Article-one-imad',
+    title:'Article-one-imad',
     heading:'Article-one',
     date:'jan 01 2018',
-    content:` <h3>Article-One</h3>
+    content:`
             <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident, at ut fugiat fuga.
             Modi officiis harum, ipsa quod totam quas aliquam eaque reiciendis earum tempore optio
             placeat dolorem eos ullam.</p>
