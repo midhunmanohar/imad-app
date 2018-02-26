@@ -21,7 +21,7 @@ button.onclick = function (){
 }
 }
 };
-request.open('GET', 'http://u034senthil.imad.hasura-app.io/counter', true);
+request.open('GET', 'http://midhunmanohar.imad.hasura-app.io/counter', true);
 request.send(null);
 };
 
