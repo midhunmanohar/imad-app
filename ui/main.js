@@ -35,8 +35,7 @@ request.send(null);
 //     span.innerHTML=counter.toString();
 // }
 
-var nameInput=document.getElementById("name").value;
-var submit=document.getElementById("submit");
+
 submit.onclick=function(){
     
    // create the request
@@ -57,7 +56,10 @@ submit.onclick=function(){
          }  
        
   }; 
-          //make the request
+        var nameInput=document.getElementById("name").value;
+        var submit=document.getElementById("submit");
+        
+        //make the request 
         request.open("GET", "http://midhmanohar.imad.hasura-app.io/submit-name?name="+nameInput, true);
         request.send(null);
 };
