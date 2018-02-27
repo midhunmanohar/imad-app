@@ -87,6 +87,7 @@ function createTemplate(data){
                 <div>
                     ${content}
                 </div>
+                <br/>
                 <textarea rows="6" cols="100" placeholder="Add comments here..."></textarea>
             </div>
         </body>
