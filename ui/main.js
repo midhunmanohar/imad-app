@@ -24,7 +24,7 @@ button.onclick = function (){
   };
   
 request.open("GET", "http://midhmanohar.imad.hasura-app.io/counter", true);
-request.send();
+request.send(null);
     
 };
 
