@@ -23,7 +23,7 @@ button.onclick = function (){
       
   };
   
-request.open("GET", "http://midhunmanohar.imad.hasura-app.io/counter", true);
+request.open("GET", "http://midhmanohar.imad.hasura-app.io/counter", true);
 request.send();
     
 };
