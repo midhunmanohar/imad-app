@@ -87,6 +87,8 @@ function createTemplate(data){
                 <div>
                     ${content}
                 </div>
+                
+                <input type="textarea"/>
             </div>
         </body>
     </html>`
