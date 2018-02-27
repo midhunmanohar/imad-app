@@ -32,3 +32,7 @@ body {
 .text-center{
     text-align:center;
 }
+
+ul{
+    margin:0 auto;
+}
