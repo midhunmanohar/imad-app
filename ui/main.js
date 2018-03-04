@@ -35,7 +35,8 @@ request.send(null);
 //     span.innerHTML=counter.toString();
 // }
 
-
+var submit=document.getElementById("submit");
+        
 submit.onclick=function(){
     
    // create the request
@@ -57,13 +58,41 @@ submit.onclick=function(){
        
   }; 
         var nameInput=document.getElementById("name").value;
-        var submit=document.getElementById("submit");
-        
         //make the request 
         request.open("GET", "http://midhmanohar.imad.hasura-app.io/submit-name?name="+nameInput, true);
         request.send(null);
 };
 
+var commentSubmit=document.getElementById("commentSubmit");
+
+commentSubmit.onclick=function(){
+    
+    // create the request
+   var request = new XMLHttpRequest();  
+    
+   request.onreadystatechange = function () { 
+            if (this.readyState == 4 && this.status == 200){
+              
+            var commentInput = request.responseText;
+            commentInput=JSON.parse(commentInput);
+            
+            var commentArea=document.getElementById("commentArea");
+            commentArea.innerHTMl=commentInput;
+            
+            
+                      
+         }
+         
+        
+         
+       
+  }; 
+        var comment=document.getElementById("comment").value;
+        //make the request 
+        request.open("GET", "http://midhmanohar.imad.hasura-app.io/submit-comment?comment="+comment, true);
+        request.send(null);
+};
+ 
 
 
 
