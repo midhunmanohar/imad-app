@@ -73,8 +73,8 @@ commentSubmit.onclick=function(){
    request.onload = function () { 
             console.log('Readystate :',request.readyState);
             if (this.status == 200){
-              
-            var commentInput = request.responseText;
+            var commentInput =this.responseText;
+            console.log(commentInput)
             commentInput=JSON.parse(commentInput);
             
             var commentArea=document.getElementById("commentArea");
