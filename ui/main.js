@@ -76,7 +76,7 @@ commentSubmit.onclick=function(){
             var commentInput =this.responseText;
             commentInput=JSON.parse(commentInput);
             
-            console.log(commentInput)
+            // console.log(commentInput);
             
             var commentArea=document.getElementById("commentArea");
             commentArea.innerHTMl=commentInput;
