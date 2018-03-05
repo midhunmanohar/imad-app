@@ -71,6 +71,7 @@ commentSubmit.onclick=function(){
    var request = new XMLHttpRequest();  
     
    request.onload = function () { 
+            console.log('Readystate :',request.readyState);
             if (this.status == 200){
               
             var commentInput = request.responseText;
