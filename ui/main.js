@@ -75,15 +75,14 @@ commentSubmit.onclick=function(){
             if (this.status == 200){
             var commentInput =this.responseText;
             commentInput=JSON.parse(commentInput);
-            
+            alert(commentInput);
             // console.log(commentInput);
             
             var commentArea=document.getElementById("commentArea");
             commentArea.innerHTMl=commentInput;
             
             
-                      
-         }
+        }
          
         
          
