@@ -74,8 +74,9 @@ commentSubmit.onclick=function(){
             console.log('Readystate :',request.readyState);
             if (this.status == 200){
             var commentInput =this.responseText;
-            console.log(commentInput);
             commentInput=JSON.parse(commentInput);
+            
+            console.log(commentInput)
             
             var commentArea=document.getElementById("commentArea");
             commentArea.innerHTMl=commentInput;
