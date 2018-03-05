@@ -70,8 +70,8 @@ commentSubmit.onclick=function(){
     // create the request
    var request = new XMLHttpRequest();  
     
-   request.onreadystatechange = function () { 
-            if (this.readyState == 4 && this.status == 200){
+   request.onload = function () { 
+            if (this.status == 200){
               
             var commentInput = request.responseText;
             commentInput=JSON.parse(commentInput);
