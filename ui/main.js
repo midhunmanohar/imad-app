@@ -78,9 +78,7 @@ commentSubmit.onclick=function(){
             alert(commentInput);
             // console.log(commentInput);
             
-            var commentArea=document.getElementById("commentArea");
-            commentArea.innerHTMl=commentInput;
-            
+            document.getElementById("main-text").innerHTML=commentInput;
             
         }
          
