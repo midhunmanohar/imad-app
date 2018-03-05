@@ -89,6 +89,7 @@ commentSubmit.onclick=function(){
        
   }; 
         var comment=document.getElementById("comment").value;
+        console.log(comment);
         //make the request 
         request.open("GET", "http://midhmanohar.imad.hasura-app.io/submit-comment?comment="+comment, true);
         request.send(null);
