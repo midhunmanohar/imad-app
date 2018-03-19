@@ -17,6 +17,8 @@ var config = {
 var app = express();
 app.use(morgan('combined'));
 
+/*
+
 var articles ={
     'article-one':{
     title:'Article-One-Imad',
@@ -70,6 +72,9 @@ var articles ={
     
 }; 
 
+*/
+
+
 function createTemplate(data){
     var title=data.title;
     var date=data.date;
@@ -112,6 +117,8 @@ app.get('/', function (req, res) {
 
 var pool=new Pool(config);
 
+/*
+
 app.get('/test-db',function(req,res){
    pool.query('SELECT * FROM test',function(err,result){
       if(err){
@@ -122,6 +129,7 @@ app.get('/test-db',function(req,res){
    });     
 });
 
+*/
 
 var counter=0;
 app.get('/counter',function(req,res){
