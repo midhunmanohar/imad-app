@@ -116,7 +116,7 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
-function hash(input){
+function hash(input,salt){
     var hashed=crypto.pbkdf25Sync(input,salt,10000,512,'sha512');
     return hashed;
 }
@@ -126,6 +126,8 @@ app.get('/hash/:input',function(req,res){
     res.send(hashedString);
     
 });
+
+
 var pool=new Pool(config);
 
 /*
