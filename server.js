@@ -144,6 +144,10 @@ app.get('/test-db',function(req,res){
 
 */
 
+app.get('/create-user',function(req,res){
+    
+});
+
 var counter=0;
 app.get('/counter',function(req,res){
     counter+=1;
