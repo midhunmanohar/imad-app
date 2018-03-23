@@ -109,7 +109,7 @@ function createTemplate(data){
                 <textarea rows="6" cols="100" placeholder="Add comments here..."></textarea>
             </div>
         </body>
-    </html>`
+    </html>`;
   
   return htmlTemplate;  
 }
