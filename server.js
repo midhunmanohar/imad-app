@@ -149,7 +149,7 @@ app.get('/test-db',function(req,res){
 app.get('/create-user/:newuser',function(req,res){
     var username=req.params.newuser;
     var password='password';
-    var salt = crypto.randomBytes(128).toString(hex);
+    var salt = crypto.randomBytes(128).toString('hex');
     var dbString = hash(password,salt);
     pool.query('INSERT INTO "user" (username,password) VALUES ($1,$2)',[username,dbString],function(err,result){
        if(err){
