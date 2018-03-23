@@ -146,8 +146,8 @@ app.get('/test-db',function(req,res){
 
 */
 
-app.get('/:create-user',function(req,res){
-    var username=req.params.create-user;
+app.get('/create-user/:newuser',function(req,res){
+    var username=req.params.newuser;
     var password='password';
     var salt = crypto.randomBytes(128).toString(hex);
     var dbString = hash(password,salt);
