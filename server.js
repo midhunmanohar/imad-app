@@ -147,7 +147,7 @@ app.post('/login',function(req,res){
           
           res.status(500).send(err.toString());
       } else{
-        res.send(result.rows);  
+        res.send(result.rows[0]);  
       }
     
         
