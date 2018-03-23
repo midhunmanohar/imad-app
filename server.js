@@ -147,15 +147,11 @@ app.post('/login',function(req,res){
           
           res.status(500).send(err.toString());
       } else{
-          var dbString=result.rows[0].password;
-          var salt=dbString.split('$')[2];
-          var hashedPassword=hash(password,salt);
-          if(hashedPassword===dbString){
-              res.send('Login successfully');
-          }
+        res.send(result);  
       }
     
-});
+        
+    });
            
 });
 
