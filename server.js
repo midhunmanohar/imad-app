@@ -149,7 +149,7 @@ app.post('/login',function(req,res){
       } else{
     
           var dbString = result.rows[0].password;
-          res.send(dbString.split('$'));
+          res.send(dbString.split("$")[2]);
       }
       });
            
