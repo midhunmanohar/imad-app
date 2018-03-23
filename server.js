@@ -149,9 +149,7 @@ app.post('/login',function(req,res){
       } else{
     
           var dbString = result.rows[0].password;
-          var salt=dbString.split('$')[2];
-          var hashedPassword = hash(password,salt);
-          res.send(hashedPassword);
+          res.send(dbString.split('$')[2]);
       }
       });
            
