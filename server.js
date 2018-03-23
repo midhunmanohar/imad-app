@@ -115,6 +115,7 @@ function createTemplate(data){
 }
 
 app.post('/create-user',function(req,res){
+    
     var username=req.body.username;
     var password=req.body.password;
     var salt = crypto.randomBytes(128).toString('hex');
