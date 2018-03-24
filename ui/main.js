@@ -181,6 +181,37 @@ register.onclick=function(){
 };
 
 
+// Logout user
+
+var logout=document.getElementById("logout");
+
+logout.onclick=function(){
+   
+   var request = new XMLHttpRequest();  
+    
+   request.onreadystatechange = function () { 
+            if (this.readyState == 4 && this.status == 200){
+              
+             alert("Logout Successfully");
+             
+             document.getElementById("login_area").innerHTML=`<h3>Logged Out</h3>`;
+             
+            }  else if(this.status==403){
+                alert("something invalid");
+            }else if(this.status==500){
+                alert("something went wrong on the server");
+            }
+       
+  };
+        
+        //make the request 
+        
+        request.open("GET", "http://midhmanohar.imad.hasura-app.io/logout", true);
+        request.send(null);
+};
+
+
+
 
 
 
