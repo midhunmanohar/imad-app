@@ -187,6 +187,18 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
+app.get('/get-articles',function(req,res){
+    
+     pool.query('SELECT * FROM article ORDER BY date DESC', function (err, result) {
+      if (err) {
+          res.status(500).send(err.toString());
+      } else {
+          res.send(JSON.stringify(result.rows));
+      }
+   });
+    
+});
+
 app.get('/hash/:input',function(req,res){
     
     var hashedString=hash(req.params.input,'this-is-some-random-string');
