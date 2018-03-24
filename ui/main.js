@@ -103,9 +103,9 @@ commentSubmit.onclick=function(){
  
 //submit username/password 
  
-var submit_btn=document.getElementById("submit_btn");
+var login=document.getElementById("login");
 
-submit_btn.onclick=function(){
+login.onclick=function(){
    
    var request = new XMLHttpRequest();  
     
