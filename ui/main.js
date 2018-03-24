@@ -99,6 +99,11 @@ commentSubmit.onclick=function(){
 
 */
 
+function loadLogoutForm(username){
+    var logoutHtml=`
+    <h3>Hi ${username} </h3>
+    <button id="logout">Logout</button>`;
+}
 
  
 //submit username/password 
@@ -115,6 +120,10 @@ login.onclick=function(){
             if (this.readyState == 4 && this.status == 200){
               
              alert("User Logged In Successfully");
+             
+             loadLogoutForm(username)
+             
+             
             }  else if(this.status==403){
                 alert("Username/Password is incorrect");
             }else if(this.status==500){
@@ -137,7 +146,7 @@ login.onclick=function(){
 
 
 
-//Register
+//Register new user
 
 var register=document.getElementById("register");
 
