@@ -110,13 +110,15 @@ submit_btn.onclick=function(){
    var request = new XMLHttpRequest();  
     
    request.onreadystatechange = function () { 
-            if (this.readyState === 4 && this.status === 200){
-              
-             alert("User Logged In Successfully");
-            }  else if(this.readyState === 4 && this.status===403){
-                alert("Username/Password is incorrect");
-            }else if(this.readyState === 4 && this.status===500){
-                alert("something went wrong on the server");
+            
+            if(request.reasyState===XMLHttpRequest.DONE){
+                if(request.status===200){
+                    alert("Logged In Successfully");
+                }else if(request.status===403){
+                    alert("Username/password is incorrect");
+                }else if(request.status===500){
+                    alert("something went wrong on the server");
+                }
             }
        
   }; 
