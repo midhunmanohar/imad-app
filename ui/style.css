@@ -34,7 +34,12 @@ body {
 }
 
 #articles{
-    padding:20px;
+    padding:40px;
+    display:flex;
+    flex-direction:column;
+    flex-wrap:nowrap;
+    justify-content:center;
+    align-items:center;
 }
 
 ul{
@@ -46,6 +51,7 @@ ul{
 li {
   font: 200 20px/1.5 Helvetica, Verdana, sans-serif;
   border-bottom: 1px solid #ccc;
+  padding:10px;
 }
 
 li:last-child {
