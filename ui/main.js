@@ -102,7 +102,7 @@ commentSubmit.onclick=function(){
 function loadLogoutForm(username){
     var logoutHtml=`
     <h3>Hi ${username} </h3>
-   <button><a style="text-decoration:none;" href="/logout">Logout</a></button>`;
+   <button><a style="text-decoration:none;color:#000;" href="/logout">Logout</a></button>`;
     
     return logoutHtml;
      
