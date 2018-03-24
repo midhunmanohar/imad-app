@@ -32,3 +32,10 @@ body {
 .text-center{
     text-align:center;
 }
+
+ul{
+    list-style-type:circle;
+}
+li{
+    padding:5px;
+}
