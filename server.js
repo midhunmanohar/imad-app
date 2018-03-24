@@ -235,14 +235,24 @@ app.get('/counter',function(req,res){
     res.send(counter.toString());
 });
 
-
-var comment1="";
 app.get('/submit-comment',function(req,res) {
     
+    var comment=req.body.comment;
+    // var salt = crypto.randomBytes(128).toString('hex');
+    // var dbString = hash(password,salt);
     
-        var cmt1 = req.query.cmt1;
-        comment1=cmt1;
-        res.send(JSON.stringify(comment1));
+    if(req.session && req.session.auth && req.session.auth.userId){
+        pool.query('INSERT INTO "comment" (id,comments) VALUES ($1,$2)',[req.session.auth.userId,comment],function(err,result){
+       if(err){
+           res.status(500).send(err.toString());
+       } else{
+           res.send("comment submitted :",req.session.auth.userId);
+       }
+    }); 
+    
+        
+    }
+    
 });
 
 
