@@ -139,8 +139,6 @@ login.onclick=function(){
 
 //Register
 
-
- 
 var register=document.getElementById("register");
 
 register.onclick=function(){
