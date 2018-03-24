@@ -103,6 +103,9 @@ function loadLogoutForm(username){
     var logoutHtml=`
     <h3>Hi ${username} </h3>
     <button id="logout">Logout</button>`;
+    
+    return logoutHtml;
+     
 }
 
  
@@ -121,7 +124,7 @@ login.onclick=function(){
               
              alert("User Logged In Successfully");
              
-             loadLogoutForm(username)
+             document.getElementById("login_area").innerHTML=loadLogoutForm(username);
              
              
             }  else if(this.status==403){
