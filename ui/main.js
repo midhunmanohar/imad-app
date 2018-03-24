@@ -102,6 +102,8 @@ commentSubmit.onclick=function(){
 
  
 //submit username/password 
+
+//Login
  
 var login=document.getElementById("login");
 
@@ -135,6 +137,38 @@ login.onclick=function(){
 
 
 
+//Register
+
+
+ 
+var register=document.getElementById("register");
+
+register.onclick=function(){
+   
+   var request = new XMLHttpRequest();  
+    
+   request.onreadystatechange = function () { 
+            if (this.readyState == 4 && this.status == 200){
+              
+             alert("Registered Successfully");
+            }  else if(this.status==403){
+                alert("Username/Password is invalid");
+            }else if(this.status==500){
+                alert("something went wrong on the server");
+            }
+       
+  }; 
+        var username=document.getElementById("username").value;
+        var password=document.getElementById("password").value;
+        console.log(username);
+        console.log(password);
+        
+        //make the request 
+        
+        request.open("POST", "http://midhmanohar.imad.hasura-app.io/create-user", true);
+        request.setRequestHeader("Content-Type","application/json");
+        request.send(JSON.stringify({username:username,password:password}));
+};
 
 
 
