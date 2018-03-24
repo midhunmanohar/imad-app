@@ -114,6 +114,7 @@ function createTemplate(data){
                 </div>
                 <br/>
                 <textarea rows="6" cols="100" placeholder="Add comments here..."></textarea>
+                <br/>
                 <button>submit</button>
             </div>
         </body>
