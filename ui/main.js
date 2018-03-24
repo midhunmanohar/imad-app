@@ -58,7 +58,7 @@ submit.onclick=function(){
   }; 
         var nameInput=document.getElementById("name").value;
         //make the request 
-        request.open("GET", "http://midhmanohar.imad.hasura-app.io/submit-name?name="+nameInput, true);
+        request.open("GET","http://midhmanohar.imad.hasura-app.io/submit-name?name="+nameInput, true);
         request.send(null);
 };
 
@@ -126,7 +126,6 @@ login.onclick=function(){
              
              document.getElementById("login_area").innerHTML=loadLogoutForm(username);
              
-             
             }  else if(this.status==403){
                 alert("Username/Password is incorrect");
             }else if(this.status==500){
@@ -178,6 +177,8 @@ register.onclick=function(){
         request.open("POST", "http://midhmanohar.imad.hasura-app.io/create-user", true);
         request.setRequestHeader("Content-Type","application/json");
         request.send(JSON.stringify({username:username,password:password}));
+
+    
 };
 
 
