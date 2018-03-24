@@ -1,4 +1,3 @@
-console.log('Loaded!'); 
 
 // document.getElementById("main-text").innerHTML="Hello";
 
@@ -95,7 +94,36 @@ commentSubmit.onclick=function(){
         request.send(null);
 };
  
+//submit username/password 
+ 
+submit_btn=document.getElementById("submit_btn");
 
+submit_btn.onclick=function(){
+   
+   var request = new XMLHttpRequest();  
+    
+   request.onreadystatechange = function () { 
+            if (this.readyState == 4 && this.status == 200){
+              
+             alert("User Logged In Successfully");
+            }  else if(this.status==403){
+                alert("Username/Password is incorrect");
+            }else if(this.status==500){
+                alert("something went wrong on the server");
+            }
+       
+  }; 
+        var username=document.getElementById("username").value;
+        var password=document.getElementById("password").value;
+        console.log(username);
+        console.log(password);
+        
+        //make the request 
+        
+        request.open("POST", "http://midhmanohar.imad.hasura-app.io/login", true);
+        request.setRequestHeader("Content-Type","application/json");
+        request.send(JSON.stringify({username:username,password:password}));
+};
 
 
 
