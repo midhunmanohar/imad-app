@@ -62,6 +62,8 @@ submit.onclick=function(){
         request.send(null);
 };
 
+/*  Submit comment 
+  
 var commentSubmit=document.getElementById("commentSubmit");
 
 commentSubmit.onclick=function(){
@@ -93,6 +95,11 @@ commentSubmit.onclick=function(){
         request.open("GET", "http://midhmanohar.imad.hasura-app.io/submit-comment?cmt1="+comment, true);
         request.send(null);
 };
+
+
+*/
+
+
  
 //submit username/password 
  
