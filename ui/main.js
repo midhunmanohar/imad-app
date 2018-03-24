@@ -96,7 +96,7 @@ commentSubmit.onclick=function(){
  
 //submit username/password 
  
-submit_btn=document.getElementById("submit_btn");
+var submit_btn=document.getElementById("submit_btn");
 
 submit_btn.onclick=function(){
    
