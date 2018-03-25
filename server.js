@@ -184,8 +184,8 @@ app.get('/counter',function(req,res){
     res.send(counter.toString());
 });
 
-app.get('/ui/:fileName', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', req.params.fileName));
+app.get('/ui/:fileName',function(req,res){
+   res.sendFile(path.join(__dirname,'ui',req.params.fileName)); 
 });
 
 var port = 80;
