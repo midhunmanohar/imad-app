@@ -1,7 +1,7 @@
 // Eg: midhmanohar.imad.hasura-app.io/articles/article-one will result in article-one
 
 var currentArticleTitle = window.location.pathname.split('/')[2];
-
+ 
 function loadCommentForm () {
     var commentFormHtml = `
         <h5>Submit a comment</h5>
@@ -73,9 +73,9 @@ function loadComments () {
     
     var request = new XMLHttpRequest();
     request.onreadystatechange = function () {
-        
-            var comments = document.getElementById('comments');
+       
             if (this.readyState == 4 && this.status == 200) {
+                var comments = document.getElementById('comments');
                 var content = '';
                 var commentsData = JSON.parse(this.responseText);
                 for (var i=0; i< commentsData.length; i++) {
@@ -87,7 +87,10 @@ function loadComments () {
                         </div>
                     </div>`;
                 }
+                
                 comments.innerHTML = content;
+            
+                
             } else {
                 comments.innerHTML('Oops! Could not load comments!');
             }
