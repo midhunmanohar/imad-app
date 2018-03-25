@@ -54,7 +54,7 @@ function createTemplate(data){
                     ${content}
                 </div>
                 <br/>
-                <textarea rows="6" cols="100" placeholder="Add comments here..."></textarea>
+                <textarea rows="6" cols="100" placeholder="Add comments here..." id="comment"></textarea>
                 <br/>
                 <button id="submit_btn">submit</button>
                 
@@ -87,6 +87,18 @@ app.post('/create-user',function(req,res){
        }
     }); 
     
+});
+
+app.post('/comment',function(req,res){
+   var comment=req.body.comment;
+   var id=req.session.auth.userId;
+   pool.query('INSERT INTO "comment" (id,comments) VALUES ($1,$2)',[id,comment],function(err,result){
+       if(err){
+           res.status(500).send(err.toString());
+       }else{
+           res.send("comment submited");
+       }
+   });
 });
 
 app.post('/login',function(req,res){
