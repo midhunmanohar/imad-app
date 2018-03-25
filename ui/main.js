@@ -73,16 +73,26 @@ function loadArticles () {
                     <a href="/articles/${articleData[i].title}">${articleData[i].heading}</a>
                     (${articleData[i].date.split('T')[0]})</li>`;
                 }
-                content += "</ul>"
+                content += "</ul>";
                 articles.innerHTML = content;
             } else {
-                articles.innerHTML('Oops! Could not load all articles!')
+                articles.innerHTML('Oops! Could not load all articles!');
             }
         }
 };
     
     request.open('GET', '/get-articles', true);
     request.send(null);
+}
+
+function loadCommentForm(){
+    document.getElementById("comment_input").innerHTML=`
+        <h5>Submit a comment</h5>
+        <textarea id="comment_text" rows="5" cols="100" placeholder="Enter your comment here..."></textarea>
+        <br/>
+        <input type="submit" id="submit" value="Submit" />
+        <br/>
+        `;
 }
 
 
@@ -114,6 +124,8 @@ login.onclick=function(){
              document.getElementById("login_area").innerHTML=loadLogoutForm(username);
              
              loadArticles ();
+             
+             loadCommentForm();
              
             }  else if(this.status==403){
                 alert("Username/Password is incorrect");
