@@ -130,6 +130,17 @@ app.get('/logout',function(req,res){
     res.send("Logged Out");
 });
 
+var names=[];
+app.get('/submit-name',function(req,res){
+   
+   var name=req.query.name;
+   
+   names.push(name);
+   
+   res.send(JSON.stringify(names));
+});
+
+
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
@@ -145,7 +156,6 @@ app.get('/get-articles',function(req,res){
    });
     
 });
-
 
 var pool=new Pool(config);
 
