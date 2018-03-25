@@ -26,65 +26,6 @@ app.use(session({
     cookie:{maxAge:1000*60*60*24*30}
 }));
 
-
-/*
-
-var articles ={
-    'article-one':{
-    title:'Article-One-Imad',
-    heading:'Article-one',
-    date:'jan 01 2018',
-    content:`
-            <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident, at ut fugiat fuga.
-            Modi officiis harum, ipsa quod totam quas aliquam eaque reiciendis earum tempore optio
-            placeat dolorem eos ullam.</p>
-            
-            <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident, at ut fugiat fuga.
-            Modi officiis harum, ipsa quod totam quas aliquam eaque reiciendis earum tempore optio
-            placeat dolorem eos ullam.</p>
-            
-            <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident, at ut fugiat fuga.
-            Modi officiis harum, ipsa quod totam quas aliquam eaque reiciendis earum tempore optio
-            placeat dolorem eos ullam.</p>`
-    },
-    'article-two':{
-    title:'Article-Two',
-    heading:'Article-Two',
-    date:'jan 23 2018',
-    content:` <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident, at ut fugiat fuga.
-            Modi officiis harum, ipsa quod totam quas aliquam eaque reiciendis earum tempore optio
-            placeat dolorem eos ullam.</p>
-            
-            <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident, at ut fugiat fuga.
-            Modi officiis harum, ipsa quod totam quas aliquam eaque reiciendis earum tempore optio
-            placeat dolorem eos ullam.</p>
-            
-            <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident, at ut fugiat fuga.
-            Modi officiis harum, ipsa quod totam quas aliquam eaque reiciendis earum tempore optio
-            placeat dolorem eos ullam.</p>`
-    },
-    'article-three':{
-    title:'Article-Three',
-    heading:'Article-Three',
-    date:'feb 05 2018',
-    content:` <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident, at ut fugiat fuga.
-            Modi officiis harum, ipsa quod totam quas aliquam eaque reiciendis earum tempore optio
-            placeat dolorem eos ullam.</p>
-            
-            <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident, at ut fugiat fuga.
-            Modi officiis harum, ipsa quod totam quas aliquam eaque reiciendis earum tempore optio
-            placeat dolorem eos ullam.</p>
-            
-            <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident, at ut fugiat fuga.
-            Modi officiis harum, ipsa quod totam quas aliquam eaque reiciendis earum tempore optio
-            placeat dolorem eos ullam.</p>`
-    }
-    
-}; 
-
-*/
-
-
 function createTemplate(data){
     var title=data.title;
     var date=data.date;
@@ -205,29 +146,8 @@ app.get('/get-articles',function(req,res){
     
 });
 
-app.get('/hash/:input',function(req,res){
-    
-    var hashedString=hash(req.params.input,'this-is-some-random-string');
-    res.send(hashedString);
-    
-});
-
 
 var pool=new Pool(config);
-
-/*
-
-app.get('/test-db',function(req,res){
-   pool.query('SELECT * FROM test',function(err,result){
-      if(err){
-          res.status(500).send(err.toString());
-      }else{
-          res.send(JSON.stringify(result.rows[1]));
-      } 
-   });     
-});
-
-*/
 
 var counter=0;
 app.get('/counter',function(req,res){
@@ -235,33 +155,9 @@ app.get('/counter',function(req,res){
     res.send(counter.toString());
 });
 
-app.get('/submit-comment',function(req,res) {
-    
-    var comment=req.body.comment;
-    // var salt = crypto.randomBytes(128).toString('hex');
-    // var dbString = hash(password,salt);
-    
-    if(req.session && req.session.auth && req.session.auth.userId){
-        pool.query('INSERT INTO "comment" (id,comments) VALUES ($1,$2)',[req.session.auth.userId,comment],function(err,result){
-       if(err){
-           res.status(500).send(err.toString());
-       } else{
-           res.send("comment submitted :",req.session.auth.userId);
-       }
-    }); 
-    
-        
-    }
-    
-});
-
-
-
 app.get('/articles/:articleName',function(req,res){
     
    var articleName=req.params.articleName;
-   
-//   pool.query(`SELECT * FROM article WHERE title = '${req.params.articleName}'`,function(err,result)
 
      pool.query('SELECT * FROM article WHERE title = $1 ',[req.params.articleName],function(err,result){
       if(err){
@@ -289,25 +185,6 @@ app.get('/ui/main.js', function (req, res) {
 app.get('/ui/madi.png', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'madi.png'));
 });
-
-
-/*
-
-var names=[];
-app.get('/submit-name',function(req,res){
-   var name = req.query.name;
-   
-   names.push(name);
-   
-   res.send(JSON.stringify(names));
-});
-
-*/
-
-
-
-// Do not change port, otherwise your app won't run on IMAD servers
-// Use 8080 only for local development if you already have apache running on 80
 
 var port = 80;
 app.listen(port, function () {
