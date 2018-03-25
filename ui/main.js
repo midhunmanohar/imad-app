@@ -85,16 +85,6 @@ function loadArticles () {
     request.send(null);
 }
 
-function loadCommentForm(){
-    document.getElementById("comment_input").innerHTML=`
-        <h5>Submit a comment</h5>
-        <textarea id="comment_text" rows="5" cols="100" placeholder="Enter your comment here..."></textarea>
-        <br/>
-        <input type="submit" id="submit" value="Submit" />
-        <br/>
-        `;
-}
-
 
 function loadLogoutForm(username){
     var logoutHtml=`
@@ -125,7 +115,13 @@ login.onclick=function(){
              
              loadArticles ();
              
-             loadCommentForm();
+            document.getElementById("comment_input").innerHTML=`
+        <h5>Submit a comment</h5>
+        <textarea id="comment_text" rows="5" cols="100" placeholder="Enter your comment here..."></textarea>
+        <br/>
+        <input type="submit" id="submit" value="Submit" />
+        <br/>
+        `;
              
             }  else if(this.status==403){
                 alert("Username/Password is incorrect");
