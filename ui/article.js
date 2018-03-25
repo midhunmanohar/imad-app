@@ -20,9 +20,8 @@ function loadCommentForm () {
         
         // Capture the response and store it in a variable
         request.onreadystatechange = function () {
-          if (request.readyState === XMLHttpRequest.DONE) {
-                // Take some action
-                if (request.status === 200) {
+            
+                if (this.readyState == 4 && this.status == 200) {
                     // clear the form & reload all the comments
                     document.getElementById('comment_text').value = '';
                     loadComments();    
@@ -30,7 +29,7 @@ function loadCommentForm () {
                     alert('Error! Could not submit comment');
                 }
                 submit.value = 'Submit';
-          }
+          
         };
         
         // Make the request
