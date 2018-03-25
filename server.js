@@ -153,6 +153,7 @@ app.get('/articles/:articleName',function(req,res){
      pool.query('SELECT * FROM article WHERE title = $1 ',[req.params.articleName],function(err,result){
       if(err){
           res.status(500).send(err.toString());
+          
       } else{
           if(result.rows.length===0){
               res.status(404).send("article not found");
@@ -176,7 +177,7 @@ app.post('/submit-comment', function (req, res) {
                             if (err) {
                                 res.status(500).send(err.toString());
                             } else {
-                                res.status(200).send('Comment inserted!')
+                                res.status(200).send('Comment inserted!');
                             }
                         });
     
@@ -185,7 +186,6 @@ app.post('/submit-comment', function (req, res) {
         res.status(403).send('Only logged in users can comment');
     }
 });
-
 
 var names=[];
 app.get('/submit-name',function(req,res){
@@ -196,10 +196,6 @@ app.get('/submit-name',function(req,res){
    
    res.send(JSON.stringify(names));
 });
-
-
-
-
 
 var counter=0;
 app.get('/counter',function(req,res){
