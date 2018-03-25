@@ -55,6 +55,9 @@ function createTemplate(data){
                 </div>
                 
               <hr/>
+              
+              <button><a style="text-decoration:none;color:#000;" href="/logout">Logout</a></button>
+              
               <h4>Comments</h4>
               <div id="comment_form">
               </div>
