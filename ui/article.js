@@ -73,9 +73,9 @@ function loadComments () {
     
     var request = new XMLHttpRequest();
     request.onreadystatechange = function () {
-       
+        if (request.readyState === XMLHttpRequest.DONE){ 
+            var comments = document.getElementById('comments');
             if (this.readyState == 4 && this.status == 200) {
-                var comments = document.getElementById('comments');
                 var content = '';
                 var commentsData = JSON.parse(this.responseText);
                 for (var i=0; i< commentsData.length; i++) {
@@ -90,10 +90,12 @@ function loadComments () {
                 
                 comments.innerHTML = content;
             
-                
-            } else {
+            
+        } else {
                 comments.innerHTML('Oops! Could not load comments!');
             }
+            
+        }
     };
     
     request.open('GET', '/get-comments/' + currentArticleTitle, true);
