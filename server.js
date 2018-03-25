@@ -53,14 +53,6 @@ function createTemplate(data){
                 <div>
                     ${content}
                 </div>
-                <br/>
-                <input type="text" id="comment" placeholder="add comments here"></input>
-                <br/>
-                <button id="submit_btn">submit</button>
-                
-                <div id="comment_area">
-                
-                </div>
             </div>
         </body>
     </html>`;
@@ -171,6 +163,27 @@ app.get('/articles/:articleName',function(req,res){
       }
    });
    
+});
+
+app.post('/submit-comment', function (req, res) {
+   
+   // Check if the user is logged in
+   
+    if (req.session && req.session.auth && req.session.auth.userId) {
+         pool.query("INSERT INTO comment (comment, article_id, user_id) VALUES ($1, $2, $3)",
+                        [req.body.comment, articleId, req.session.auth.userId],
+                        function (err, result) {
+                            if (err) {
+                                res.status(500).send(err.toString());
+                            } else {
+                                res.status(200).send('Comment inserted!')
+                            }
+                        });
+    
+        
+    } else {
+        res.status(403).send('Only logged in users can comment');
+    }
 });
 
 
