@@ -115,6 +115,14 @@ login.onclick=function(){
              
              loadArticles ();
              
+            document.getElementById("comment_input").innerHTML=`
+        <h5>Submit a comment</h5>
+        <textarea id="comment_text" rows="5" cols="100" placeholder="Enter your comment here..."></textarea>
+        <br/>
+        <input type="submit" id="submit" value="Submit" />
+        <br/>
+        `;
+             
             }  else if(this.status==403){
                 alert("Username/Password is incorrect");
             }else if(this.status==500){
