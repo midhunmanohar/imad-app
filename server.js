@@ -140,17 +140,7 @@ app.get('/logout',function(req,res){
     res.send("Logged Out");
 });
 
-var names=[];
-app.get('/submit-name',function(req,res){
-   
-   var name=req.query.name;
-   
-   names.push(name);
-   
-   res.send(JSON.stringify(names));
-});
-
-
+var pool=new Pool(config);
 
 app.get('/get-articles',function(req,res){
     
@@ -164,7 +154,20 @@ app.get('/get-articles',function(req,res){
     
 });
 
-var pool=new Pool(config);
+
+var names=[];
+app.get('/submit-name',function(req,res){
+   
+   var name=req.query.name;
+   
+   names.push(name);
+   
+   res.send(JSON.stringify(names));
+});
+
+
+
+
 
 var counter=0;
 app.get('/counter',function(req,res){
