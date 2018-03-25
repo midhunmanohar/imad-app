@@ -108,8 +108,6 @@ login.onclick=function(){
     
    request.onreadystatechange = function () { 
             if (this.readyState == 4 && this.status == 200){
-              
-             alert("User Logged In Successfully");
              
              document.getElementById("login_area").innerHTML=loadLogoutForm(username);
              
