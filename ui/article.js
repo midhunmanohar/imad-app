@@ -20,15 +20,18 @@ function loadCommentForm () {
         
         // Capture the response and store it in a variable
         request.onreadystatechange = function () {
-            
-                if (this.readyState == 4 && this.status == 200) {
+             if (request.readyState === XMLHttpRequest.DONE) {
+                if (this.status == 200) {
                     // clear the form & reload all the comments
                     document.getElementById('comment_text').value = '';
+                    
                     loadComments();    
                 } else {
                     alert('Error! Could not submit comment');
                 }
+                
                 submit.value = 'Submit';
+             }
           
         };
         
