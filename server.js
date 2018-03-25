@@ -53,9 +53,19 @@ function createTemplate(data){
                 <div>
                     ${content}
                 </div>
+                
+              <hr/>
+              <h4>Comments</h4>
+              <div id="comment_form">
+              </div>
+              <div id="comments">
+                <center>Loading comments...</center>
+              </div>
+              
             </div>
             
-            <div id="comment_input"></div>
+            <script type="text/javascript" src="/ui/article.js"></script>
+            
         </body>
     </html>`;
   
@@ -168,7 +178,7 @@ app.post('/submit-comment/:articleName', function (req, res) {
                             if (err) {
                                 res.status(500).send(err.toString());
                             } else {
-                                res.status(200).send('Comment inserted!')
+                                res.status(200).send('Comment inserted!');
                             }
                         });
                 }
