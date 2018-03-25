@@ -185,7 +185,7 @@ app.get('/counter',function(req,res){
 });
 
 app.get('/ui/:fileName',function(req,res){
-    res.sendFile(path.join(__direname,'ui','req.params.fileName'));
+    res.sendFile(path.join(__direname,'ui',req.params.fileName));
 });
 
 var port = 80;
