@@ -178,35 +178,6 @@ register.onclick=function(){
 };
 
 
-var submit_btn=document.getElementById("submit_btn");
-
-submit_btn.onclick=function(){
-   
-   var request = new XMLHttpRequest();  
-    
-   request.onreadystatechange = function () { 
-            if (this.readyState == 4 && this.status == 200){
-              
-             alert("comment submited");
-            }  else if(this.status==403){
-                alert("something went wrong");
-            }else if(this.status==500){
-                alert("something went wrong on the server");
-            }
-       
-  }; 
-        
-        var comment=document.getElementById("comment").value;
-        //make the request 
-        
-        request.open("POST", "http://midhmanohar.imad.hasura-app.io/comment", true);
-        request.setRequestHeader("Content-Type","application/json");
-        request.send(JSON.stringify({comment:comment}));
-
-    
-};
-
-
 
 
 
