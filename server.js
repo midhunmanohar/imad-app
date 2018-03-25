@@ -123,14 +123,6 @@ app.post('/login',function(req,res){
 
 app.get('/check-login',function(req,res){
    if(req.session && req.session.auth && req.session.auth.userId){
-            
-        document.getElementById("comment_input").innerHTML=`
-        <h5>Submit a comment</h5>
-        <textarea id="comment_text" rows="5" cols="100" placeholder="Enter your comment here..."></textarea>
-        <br/>
-        <input type="submit" id="submit" value="Submit" />
-        <br/>
-        `;
        res.send('You are logged in : '+req.session.auth.userId.toString());
    } else{
        res.send("you are not logged in");
