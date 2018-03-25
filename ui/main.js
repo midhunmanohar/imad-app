@@ -9,7 +9,9 @@
 var button = document.getElementById('counter'); 
 
 button.onclick = function (){ 
-     // create the request
+    
+    // create the request
+    
     var request = new XMLHttpRequest();  
     
     request.onreadystatechange = function () { 
@@ -21,7 +23,9 @@ button.onclick = function (){
          }  
        
   }; 
-  //make the request
+  
+//make the request
+
 request.open("GET", "http://midhmanohar.imad.hasura-app.io/counter", true);
 request.send(null);
     
@@ -61,43 +65,6 @@ submit.onclick=function(){
         request.open("GET","http://midhmanohar.imad.hasura-app.io/submit-name?name="+nameInput, true);
         request.send(null);
 };
-
-/*  Submit comment 
-  
-var commentSubmit=document.getElementById("commentSubmit");
-
-commentSubmit.onclick=function(){
-    
-    // create the request
-   var request = new XMLHttpRequest();  
-    
-   request.onload = function () { 
-            console.log('Readystate :',request.readyState);
-            if (this.status == 200){
-            var commentInput =this.responseText;
-            commentInput=JSON.parse(commentInput);
-            alert(commentInput);
-            // console.log(commentInput);
-            
-            document.getElementById("main-text").innerHTML=commentInput;
-            
-        }
-         
-        
-         
-       
-  }; 
-        var comment=document.getElementById("comment").value;
-       
-        // console.log(comment);
-       
-        //make the request 
-        request.open("GET", "http://midhmanohar.imad.hasura-app.io/submit-comment?cmt1="+comment, true);
-        request.send(null);
-};
-
-
-*/
 
 function loadArticles () {
         // Check if the user is already logged in
