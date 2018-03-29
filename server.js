@@ -233,6 +233,7 @@ app.get('/submit-name',function(req,res){
    names.push(name);
    
    res.send(JSON.stringify(names));
+   
 });
 
 var counter=0;
